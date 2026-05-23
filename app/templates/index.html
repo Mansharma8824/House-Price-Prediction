@@ -1,48 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>House Price Prediction</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #1e3c72,
+                #2a5298
+            );
+        }
+
+        .container{
+
+            width: 420px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1{
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #1e3c72;
+
+            font-size: 32px;
+        }
+
+        .input-box{
+
+            margin-bottom: 20px;
+        }
+
+        input,
+        select{
+
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            border: 1px solid #ccc;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus{
+
+            border-color: #2a5298;
+
+            box-shadow: 0px 0px 8px rgba(42,82,152,0.4);
+        }
+
+        input::placeholder{
+
+            color: gray;
+
+            font-size: 14px;
+        }
+
+        button{
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #2a5298;
+
+            color: white;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover{
+
+            background: #1e3c72;
+
+            transform: scale(1.02);
+        }
+
+        .prediction{
+
+            margin-top: 25px;
+
+            text-align: center;
+
+            font-size: 24px;
+
+            color: green;
+
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-    <h1>House Price Prediction</h1>
+    <div class="container">
 
-    <form action="/predict" method="POST">
+        <h1>🏡 House Price Prediction</h1>
 
-        <input type="text" name="sqft" placeholder="Enter Square Feet" , required>
-        <br><br>
+        <form action="/predict" method="POST">
 
-        <input type="text" name="bath" placeholder="Enter Bathrooms", required>
-        <br><br>
+            <div class="input-box">
+                <input type="text"
+                       name="total_sqft"
+                       placeholder="Enter Total Square Feet"
+                       required>
+            </div>
 
-        <input type="text" name="balcony" placeholder="Enter Balcony", required>
-        <br><br>
+            <div class="input-box">
+                <input type="text"
+                       name="bath"
+                       placeholder="Enter Number of Bathrooms"
+                       required>
+            </div>
 
-        <input type="text" name="bhk" placeholder="Enter BHK", required>
-        <br><br>
+            <div class="input-box">
+                <input type="text"
+                       name="balcony"
+                       placeholder="Enter Number of Balconies"
+                       required>
+            </div>
 
-        <!-- <input type="text" name="location" placeholder="Enter Location", required> -->
-        <select name="location" required>
+            <div class="input-box">
+                <input type="text"
+                       name="bhk"
+                       placeholder="Enter BHK"
+                       required>
+            </div>
 
-                {% for location in locations %}
+            <div class="input-box">
 
-                    <option value="{{ location }}">
-                        {{ location }}
-                    </option>
+                <select name="location" required>
 
-                {% endfor %}
+                    {% for location in locations %}
 
-        </select>
-        <br><br>
+                        <option value="{{ location }}">
+                            {{ location }}
+                        </option>
 
-        <button type="submit">Predict Price</button>
+                    {% endfor %}
 
-    </form>
-    <h2>
-        {{ prediction_text }}
-    </h2>
+                </select>
+
+            </div>
+
+            <button type="submit">
+                Predict Price
+            </button>
+
+        </form>
+
+        <div class="prediction">
+
+            {{ prediction_text }}
+
+        </div>
+
+    </div>
 
 </body>
 
