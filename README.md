@@ -50,40 +50,6 @@ The application allows users to enter house details through a simple web interfa
 
 ---
 
-# 📂 Project Structure
-
-house-price-prediction/
-│
-├── app/
-│   ├── static/
-│   │   └── style.css
-│   │
-│   ├── templates/
-│   │   └── index.html
-│   │
-│   ├── models/
-│   │   └── house_price_model.pkl
-│   │
-│   └── app.py
-│
-├── notebooks/
-│   ├── EDA.ipynb
-│   ├── feature_engineering.ipynb
-│   └── model_training.ipynb
-│
-├── data/
-│   └── Bengaluru_House_Data.csv
-│
-├── screenshots/
-│   ├── home.png
-│   └── prediction.png
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-
----
-
 # 📊 Dataset Information
 
 The dataset contains Bangalore housing data with multiple features including:
@@ -144,22 +110,10 @@ The model achieved good prediction accuracy after performing feature engineering
 
 ---
 
-# 🖥️ Application Screenshots
-
-## Home Page
-
-![Home Page](screenshots/home.png)
-
-## Prediction Result
-
-![Prediction Result](screenshots/prediction.png)
-
----
-
 # ⚙️ Installation Guide
 
 ## 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/house-price-prediction.git
+git clone https://github.com/Mansharma8824/House-Price-Prediction.git
 cd house-price-prediction
